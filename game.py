@@ -68,6 +68,10 @@ class Tile:
         self.P = self.P//3
         self.K = self.K//3
         self.pH = 7
+    def reduce_NPK(self,N,P,K):
+        self.N -= N
+        self.P -= P
+        self.K -= K
 
 class Crop:
     def __init__(self, name, N, P, K, price, sale):
@@ -119,12 +123,26 @@ while running:
                 string = str(tiles[tile_no].ispH())
                 text = font.render(string,True,(0,0,0))
                 screen.blit(text, (tile_size*dimension+38,90, 105,20))
-            if mouse_x >= 555 and mouse_x <= 900:
+            if mouse_x >= 555 and mouse_x <= 900:#if a crop is bought
                 if mouse_y >= 0 and mouse_y <= 45:
                     if money >= crops[0].price and tiles[cur_tile_no].K >= crops[0].K and tiles[cur_tile_no].N >= crops[0].N and tiles[cur_tile_no].P >= crops[0].P and tiles[cur_tile_no].isEmpty and tiles[cur_tile_no].ispH():
                         tiles[cur_tile_no].isEmpty = False
                         pygame.draw.rect(screen,colours[0],(tiles[cur_tile_no].x*tile_size,tiles[cur_tile_no].y*tile_size,tile_size,tile_size))
                         money -= crops[0].price
+                        tiles[cur_tile_no].reduce_NPK(crops[0].N,crops[0].P,crops[0].K)
+                        pygame.draw.rect(screen, (255,255,255), (tile_size*dimension+48,30, 95,60))#whiten previous values
+                        pygame.draw.rect(screen, (255,255,255), (tile_size*dimension+83,10, 65,20))#whiten previous values
+                        text = font.render('X:'+str(tiles[tile_no].x)+' Y:'+str(tiles[tile_no].y),True,(0,0,0))
+                        screen.blit(text, (tile_size*dimension+83,10, 60,20))
+                        text = font.render(str(tiles[tile_no].N),True,(0,0,0))
+                        screen.blit(text, (tile_size*dimension+48,30, 95,60))
+                        text = font.render(str(tiles[tile_no].P),True,(0,0,0))
+                        screen.blit(text, (tile_size*dimension+48,50, 95,60))
+                        text = font.render(str(tiles[tile_no].K),True,(0,0,0))
+                        screen.blit(text, (tile_size*dimension+48,70, 95,60))
+                        string = str(tiles[tile_no].ispH())
+                        text = font.render(string,True,(0,0,0))
+                        screen.blit(text, (tile_size*dimension+38,90, 105,20))
                         pygame.draw.rect(screen,(255,255,255),(400,150,200,15))
                         text = font.render('Money:'+str(money),True,(0,0,0))
                         screen.blit(text, (400,150)) 
@@ -133,6 +151,17 @@ while running:
                         tiles[cur_tile_no].isEmpty = False
                         pygame.draw.rect(screen,colours[1],(tiles[cur_tile_no].x*tile_size,tiles[cur_tile_no].y*tile_size,tile_size,tile_size)) 
                         money -= crops[1].price
+                        tiles[cur_tile_no].reduce_NPK(crops[1].N,crops[1].P,crops[1].K)
+                        pygame.draw.rect(screen, (255,255,255), (tile_size*dimension+48,30, 95,60))#whiten previous values
+                        pygame.draw.rect(screen, (255,255,255), (tile_size*dimension+83,10, 65,20))#whiten previous values
+                        text = font.render('X:'+str(tiles[tile_no].x)+' Y:'+str(tiles[tile_no].y),True,(0,0,0))
+                        screen.blit(text, (tile_size*dimension+83,10, 60,20))
+                        text = font.render(str(tiles[tile_no].N),True,(0,0,0))
+                        screen.blit(text, (tile_size*dimension+48,30, 95,60))
+                        text = font.render(str(tiles[tile_no].P),True,(0,0,0))
+                        screen.blit(text, (tile_size*dimension+48,50, 95,60))
+                        text = font.render(str(tiles[tile_no].K),True,(0,0,0))
+                        screen.blit(text, (tile_size*dimension+48,70, 95,60))
                         pygame.draw.rect(screen,(255,255,255),(400,150,200,15))
                         text = font.render('Money:'+str(money),True,(0,0,0))
                         screen.blit(text, (400,150)) 
@@ -140,7 +169,18 @@ while running:
                     if money >= crops[2].price and tiles[cur_tile_no].K >= crops[2].K and tiles[cur_tile_no].N >= crops[2].N and tiles[cur_tile_no].P >= crops[2].P and tiles[cur_tile_no].isEmpty and tiles[cur_tile_no].ispH():
                         tiles[cur_tile_no].isEmpty = False
                         pygame.draw.rect(screen,colours[2],(tiles[cur_tile_no].x*tile_size,tiles[cur_tile_no].y*tile_size,tile_size,tile_size)) 
-                        money -= crops[2].price  
+                        money -= crops[2].price
+                        tiles[cur_tile_no].reduce_NPK(crops[2].N,crops[2].P,crops[2].K)
+                        pygame.draw.rect(screen, (255,255,255), (tile_size*dimension+48,30, 95,60))#whiten previous values
+                        pygame.draw.rect(screen, (255,255,255), (tile_size*dimension+83,10, 65,20))#whiten previous values
+                        text = font.render('X:'+str(tiles[tile_no].x)+' Y:'+str(tiles[tile_no].y),True,(0,0,0))
+                        screen.blit(text, (tile_size*dimension+83,10, 60,20))
+                        text = font.render(str(tiles[tile_no].N),True,(0,0,0))
+                        screen.blit(text, (tile_size*dimension+48,30, 95,60))
+                        text = font.render(str(tiles[tile_no].P),True,(0,0,0))
+                        screen.blit(text, (tile_size*dimension+48,50, 95,60))
+                        text = font.render(str(tiles[tile_no].K),True,(0,0,0))
+                        screen.blit(text, (tile_size*dimension+48,70, 95,60))  
                         pygame.draw.rect(screen,(255,255,255),(400,150,200,15))
                         text = font.render('Money:'+str(money),True,(0,0,0))
                         screen.blit(text, (400,150))   
