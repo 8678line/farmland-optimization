@@ -1,5 +1,6 @@
 import pygame 
 import numpy as np
+#deneme
 pygame.init()
 pygame.font.init()
 font = pygame.font.Font('freesansbold.ttf', 15)
