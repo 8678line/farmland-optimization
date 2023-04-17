@@ -1,5 +1,7 @@
 # "Farmland Optimization" repository
 
+game.py contains an initial pygame implementation of a farmland environment with a visual user interface
+
 crop_game.py contains the crop allocation task environment
 
 nutrient_game.py contains the nutrient control task environment
