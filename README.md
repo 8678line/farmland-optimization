@@ -4,7 +4,7 @@ crop_game.py contains the crop allocation task environment
 
 nutrient_game.py contains the nutrient control task environment
 
-simulations.py runs multiple simulations on both environments - this is the user testing file
+simulations.py runs multiple simulations on both environments: this is the user testing file
 
 simulate_crops.py contains a simulation loop for the crop allocation task
 
