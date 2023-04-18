@@ -1,8 +1,8 @@
 # "Farmland Optimization" repository
 
-This project contains two tasks, both implemented in python using reinforcement learning and/or other machine learning technniques.
+This project contains two tasks, both implemented in python using reinforcement learning and/or other machine learning techniques.
 
-1. Crop allocation: the agent's goal is to spatially distribute a set of crops to achieve the maximum award, where each crop placement returns reward dependant on the location is it planted in.
+1. Crop allocation: the agent's goal is to spatially distribute a set of crops to achieve the maximum award, where each crop placement returns a reward depending on the location is it planted.
 
 2. Nutrient control: the agent's goal is to minimize the average daily nutrient and water spending throughout a growing season.
 
