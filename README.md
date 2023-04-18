@@ -1,10 +1,19 @@
 # "Farmland Optimization" repository
 
+This project contains two tasks, both implemented in python using reinforcement learning and/or other machine learning technniques.
+
+1. Crop allocation: the agent's goal is to spatially distribute a set of crops to achieve the maximum award, where each crop placement returns reward dependant on the location is it planted in.
+
+2. Nutrient control: the agent's goal is to minimize the average daily nutrient and water spending throughout a growing season.
+
+
+Below are the python files involved in this project:
+
 game.py contains an initial pygame implementation of a farmland environment with a functional user interface
 
-crop_game.py contains the crop allocation task environment
+crop_game.py contains the crop allocation task environment.
 
-nutrient_game.py contains the nutrient control task environment
+nutrient_game.py contains the nutrient control task environment.
 
 simulations.py runs multiple simulations on both environments: this is the user testing file
 
