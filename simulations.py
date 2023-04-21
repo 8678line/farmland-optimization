@@ -12,12 +12,15 @@ def run_simulation_1():
     num_experiments = 100
     simulation_array = np.linspace(1, num_experiments, num_experiments)
     environment = crop_game_grid(rows = 10, columns = 10, num_crops = 10, TAP = TAPs[0])
+    environment.plot_grid()
     reward_list_1 = simulate_crops(environment, num_experiments)
     
-    environment = crop_game_grid(rows = 10, columns = 5, num_crops = 6, TAP = TAPs[1])
+    environment = crop_game_grid(rows = 10, columns = 5, num_crops = 3, TAP = TAPs[1])
+    environment.plot_grid()
     reward_list_2 = simulate_crops(environment, num_experiments)
 
-    environment = crop_game_grid(rows = 3, columns = 12, num_crops = 20, TAP = TAPs[2])
+    environment = crop_game_grid(rows = 3, columns = 12, num_crops = 4, TAP = TAPs[2])
+    environment.plot_grid()
     reward_list_3 = simulate_crops(environment, num_experiments)
     
     plt.plot(simulation_array, reward_list_1)
