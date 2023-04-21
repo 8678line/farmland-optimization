@@ -1,4 +1,5 @@
 import numpy as np
+import matplotlib.pyplot as plt
 
 #a game environment grid for crop spatial allocation
 class crop_game_grid():
@@ -35,6 +36,7 @@ class crop_game_grid():
 
         self.TAP = TAP
         self.init_probabilities(TAP)
+        
 
     #initialize the probability distributions for each crop on the grid
     def init_probabilities(self, TAP):
@@ -52,7 +54,7 @@ class crop_game_grid():
                         if i == reward_list[location[0]]:
                             tile.reward[i] = np.random.uniform(0.5, 1)
                         else:
-                            tile.reward[i] = np.random.uniform(0, 1)
+                            tile.reward[i] = np.random.uniform(0, 0.5)
         
         elif TAP == "alternate_columns":
             reward_list = np.zeros([1,self.columns])
@@ -63,7 +65,7 @@ class crop_game_grid():
                         if i == reward_list[0][location[1]]:
                             tile.reward[i] = np.random.uniform(0.5, 1)
                         else:
-                            tile.reward[i] = np.random.uniform(0, 1)
+                            tile.reward[i] = np.random.uniform(0, 0.5)
 
     #return the reward for an action
     def get_reward(self, row, column, action):
@@ -72,3 +74,12 @@ class crop_game_grid():
             return 1
         else:
             return 0
+    
+    #show the heatmap for the first crop
+    def plot_grid(self):
+        self.heatmap = np.zeros((self.rows, self.columns))
+        for row in range(self.rows):
+            for column in range(self.columns):
+                self.heatmap[row][column] = self.tiles[row, column].reward[0]
+        plt.imshow(self.heatmap)
+        plt.show()
