@@ -10,7 +10,7 @@ class nutrient_game_grid():
         
         self.simulation_days = simulation_days
 
-        #the cost of using nutrients ($/g) and water ($/m^2)
+        #the cost of using nutrients and water
         self.N_cost = 0.09802
         self.P_cost = 0.06693
         self.K_cost = 0.02365
